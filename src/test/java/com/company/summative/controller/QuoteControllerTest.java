@@ -1,5 +1,6 @@
 package com.company.summative.controller;
 
+import com.company.summative.controllers.QuoteController;
 import com.company.summative.controllers.WordController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -10,22 +11,17 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(WordController.class)
-public class WordControllerTests {
+@WebMvcTest(QuoteController.class)
+public class QuoteControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
-
     private ObjectMapper mapper = new ObjectMapper();
 
-
-
     @Test
-    public void shouldReturnDefinition() throws Exception {
-        mockMvc.perform(get("/word")).andExpect(status().isOk());
+    public void shouldReturnQuote() throws Exception {
+        mockMvc.perform(get("/quote")).andExpect(status().isOk());
     }
-
-
 
 
 }
