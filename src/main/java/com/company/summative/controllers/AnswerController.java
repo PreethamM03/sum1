@@ -32,7 +32,6 @@ public class AnswerController {
     @ResponseStatus(value = HttpStatus.CREATED)
     public Answer magic(@RequestParam(required = false) String question) {
         Answer answer = new Answer(answers.get(rand.nextInt(answers.size())), question, idCounter++);
-        answerList.add(answer);
         return answer;
     }
 
