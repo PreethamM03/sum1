@@ -17,7 +17,6 @@ public class AnswerController {
     Random rand;
 
     public AnswerController(){
-        answerList=new ArrayList<>();
         rand = new Random();
         answers = new ArrayList<>();
         answers.add("Yes");
