@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.Random;
 
 @RestController
-public class AnswerController {
+public class MagicController {
     private List<Answer> answerList;
     private List<String> answers;
 
     private static int idCounter = 1;
     Random rand;
 
-    public AnswerController(){
+    public MagicController(){
         rand = new Random();
         answers = new ArrayList<>();
         answers.add("Yes");
