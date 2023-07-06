@@ -1,0 +1,82 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /magic:
+    post:
+      tags:
+        - magic-controller
+      operationId: magic
+      parameters:
+        - name: question
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Answer'
+  /word:
+    get:
+      tags:
+        - word-controller
+      operationId: getWord
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Word'
+  /quote:
+    get:
+      tags:
+        - quote-controller
+      operationId: getQuote
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Quote'
+components:
+  schemas:
+    Answer:
+      type: object
+      properties:
+        answer:
+          type: string
+        question:
+          type: string
+        id:
+          type: integer
+          format: int32
+    Word:
+      type: object
+      properties:
+        word:
+          type: string
+        id:
+          type: integer
+          format: int32
+        definition:
+          type: string
+    Quote:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        quote:
+          type: string
+        author:
+          type: string
